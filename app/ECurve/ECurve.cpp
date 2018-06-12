@@ -8,7 +8,7 @@ ECurve::ECurve() {
 	NTL::ZZ prime = NTL::conv<NTL::ZZ>(EC_P);
 	NTL::ZZ_p::init(prime);
 	this->n = NTL::conv<NTL::ZZ_p>(EC_N);
-	this->c = NTL::conv<NTL::ZZ_p>(EC_C);
+	this->a = NTL::conv<NTL::ZZ_p>(EC_A);
 	this->b = NTL::conv<NTL::ZZ_p>(EC_B);
 	this->G = EPoint(this, NTL::conv<NTL::ZZ_p>(EC_GX), NTL::conv<NTL::ZZ_p>(EC_GY));
 }
