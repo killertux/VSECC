@@ -49,7 +49,7 @@ EPoint::EPoint(ECurve *curve, unsigned char *binary) {
 }
 
 std::string EPoint::toString() {
-	return EPoint::ZZpToHexString(this->x) + "," + EPoint::ZZpToHexString(this->y);
+	return EPoint::ZZpToHexString(this->x) + EPoint::ZZpToHexString(this->y);
 }
 
 EPoint &EPoint::operator=(const EPoint &a) {
@@ -147,7 +147,8 @@ std::string EPoint::ZZpToHexString(NTL::ZZ_p &original_number) {
 		number /= 16;
 	}
 
-	for (unsigned long i = hex.size() / 2 ; i < N_BYTES; i++) {
+	unsigned long i;
+	while ((i = hex.size() / 2) < N_BYTES) {
 		hex += "0";
 	}
 

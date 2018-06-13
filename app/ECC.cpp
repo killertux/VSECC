@@ -33,8 +33,6 @@ void ECC::encrypt(std::ifstream *file, unsigned char *my_public_key,
 	while (file->read((char*)&buffer, 1)) {
 		EPoint byte_point = this->ascii_map[buffer];
 		EPoint encrypt = byte_point + M;
-		if(encrypt.toString() == "67C1F7D243000B6B3001CA1E73BE9A1E98546561D23392F905DCEB27744482144CC1BCFAB38CF1098F03D2582D496BF0")
-			std::cerr << buffer << std::endl;
 		unsigned char *result = encrypt.toBinary();
 		std::cout.write((const char *) result, N_BYTES * 2);
 		delete [] result;

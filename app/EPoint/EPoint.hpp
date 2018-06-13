@@ -32,6 +32,8 @@ public:
 	void setX(const NTL::ZZ_p &x) { EPoint::x = x; }
 	void setY(const NTL::ZZ_p &y) { EPoint::y = y; }
 
+	const bool identity() const { return is_identity; }
+
 	ECurve *getCurve() const {
 		if (curve == NULL)
 			throw Exception("No curve setted for point!");
